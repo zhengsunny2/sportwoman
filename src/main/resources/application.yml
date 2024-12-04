@@ -1,0 +1,27 @@
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.31.248:5432/sportwoman
+    username: artifactory
+    password: password
+  application:
+    name: sportwoman
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          video:
+#            client-id: video
+#            client-secret: video
+#            scope:
+#              - read
+#              - write
+#            authorization-grant-types:
+#              - authorization_code
+#              - refresh_token
+#              - password
+#            token-uri: http://localhost:8080/oauth/token
+server:
+  port: 8080
+
