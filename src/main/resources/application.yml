@@ -1,5 +1,3 @@
-
-
 spring:
   datasource:
     url: jdbc:postgresql://192.168.31.248:5432/sportwoman
@@ -7,21 +5,24 @@ spring:
     password: password
   application:
     name: sportwoman
-#  security:
-#    oauth2:
-#      client:
-#        registration:
-#          video:
-#            client-id: video
-#            client-secret: video
-#            scope:
-#              - read
-#              - write
-#            authorization-grant-types:
-#              - authorization_code
-#              - refresh_token
-#              - password
-#            token-uri: http://localhost:8080/oauth/token
+  security:
+    oauth2:
+      client:
+        registration:
+          video:
+            provider: auth-server
+            client-id: video
+            client-secret: video
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, video.read, video.upload
+            client-name: video
+        provider:
+          auth-server:
+            authorization-uri: http://127.0.0.1:19200/oauth/authorize    #OAuth Server授权码模式地址
+            token-uri: http://127.0.0.1:19200/oauth/token   #OAuth Server获取Token的地址
+            user-info-uri: http://127.0.0.1:19200/user/info   #OAuth获取用户信息的地址
+            user-name-attribute: name
 server:
   port: 8080
 
