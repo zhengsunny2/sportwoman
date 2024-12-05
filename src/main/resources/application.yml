@@ -26,3 +26,7 @@ spring:
 server:
   port: 8080
 
+minio:
+  endpoint: http://192.168.31.251:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
