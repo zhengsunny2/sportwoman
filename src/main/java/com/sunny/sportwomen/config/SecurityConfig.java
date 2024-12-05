@@ -18,7 +18,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authorize) ->
                         authorize
-                                .requestMatchers("/assets/**","/webjars/**","/actuator/**","/oauth2/**","/login").permitAll()
+                                .requestMatchers("/assets/**","/webjars/**","/actuator/**","/oauth2/**","/login", "/video/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .cors(Customizer.withDefaults())
